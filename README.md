@@ -7,9 +7,10 @@
 
 
 ## Description
-* We will have a homepage that includes rows of different movies by genre
-* Each movie will have a card which includes the movie poster and info about the movie
-* Once you click on each movie card, you will get taken to a webpage with information about the movie (which includes director, cast, IMDB rating, places to stream the movie and a movie trailer embedded).
+This project is an online cataloging app that:
+- Displays information about movies and TV shows
+- Allows users to compile their favorite movies and shows
+- Allows users to edit their profile
 
 ## APIs
 - [OMDB API](https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_OMDbAPI.md)
