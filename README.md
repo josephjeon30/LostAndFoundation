@@ -1,4 +1,4 @@
-# LostAndFoundation
+# MyMovieList by LostAndFoundation
 ## Roster: 
 * Joseph: PM, Frontend Manager
 * Nakib: Lead database manager 
