@@ -7,7 +7,9 @@
 
 
 ## Description:
-DESCRIPTION
+* We will have a homepage that includes rows of different movies by genre
+* Each movie will have a card which includes the movie poster and the movie title
+* Once you click on each movie card, you will get taken to a webpage with information about the movie (which includes director, cast, IMDB rating, places to stream the movie and a movie trailer embedded).
 
 ## Launch codes:
 ### Cloning:
