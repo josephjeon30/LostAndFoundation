@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 LostAndFoundation
 Joseph Jeon
 Nakib Abedin
@@ -6,6 +7,35 @@ Sasha Shifrina
 pd 8
 ---------------------------------
 Ripe Tomatoes
+=======
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+USAGE:
+* Replace all fields, angle brackets included, with specified info.
+  eg, pd <pd#> --> pd 3
+* Delete these instructions once all teammates understand usage.
+  (from tilde bar above to tilde bar below)
+* rename this file devlog.txt
+
+devlog--
+Use keyboard shortcut to jump to end,
+ replicate entry template, (Ctrl-Shift up x5, Ctrl-X, Ctrl-V x2)
+ modify appropriately.
+Each entry should begin with the following format:
+ firstL -- TIMESTAMP\n
+e.g.: 
+clydeS -- 2999-12-31 23:59
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<Team Name (minus "team")>
+<Member Bubbles>
+<Member Buttercup>
+<Member Blossom>
+pd <pd#>
+---------------------
+<Project Title/Description>
+
+
+>>>>>>> f193132825c51993c05674bf33b25c696a36d1c0
  ______   ______   __   __   __       ______   _______     
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
 \:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
@@ -16,7 +46,14 @@ Ripe Tomatoes
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+<<<<<<< HEAD
 ALL -- 2022-12-06 22:48
 --------------------------------------------------------------
 Revised design doc: changed landing page from home page to login page, revised component and site map
+=======
+
+fristL -- TIMESTAMP
+--------------------------------------------------------------
+<Thing fristL did.>
+>>>>>>> f193132825c51993c05674bf33b25c696a36d1c0
 ==============================================================
