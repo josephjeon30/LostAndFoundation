@@ -1,4 +1,4 @@
-# MyMovieList by LostAndFoundation
+# Ripe Tomatoes by LostAndFoundation
 ## Roster
 * Joseph: PM, Frontend Manager
 * Nakib: Lead database manager 
