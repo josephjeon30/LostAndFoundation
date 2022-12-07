@@ -36,19 +36,16 @@ def create_movie(mov_id, name, year, synopsis, trailer, poster):
         c.execute('INSERT INTO movies VALUES (?, ?, ?, ?, ?, ?)', (mov_id, name, year, synopsis, trailer, poster))
     db_close()
     
-def check_user_not_exists(username): 
+def check_user_exists(username): 
     c = db_connect()
     c.execute('SELECT username FROM users WHERE username=?', (username))
     user = c.fetchone() 
     db_close()
-    if user:
-        return False
-    return True
+    return bool(user)
 
 def create_user(username, password, pfp): 
     c = db_connect()
-    if (check_user_not_exists(username)):
-       c.execute('INSERT INTO users VALUES (?,?,?)', (username, password, pfp))
+    c.execute('INSERT INTO users VALUES (?,?,?)', (username, password, pfp))
     db_close()
 
 def verify_login(username, password):
