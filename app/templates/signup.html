@@ -32,14 +32,14 @@
 
     <h2>Sign Up</h2>
 
-    <form method="POST">
+    <form action="/auth/signup" method="POST">
             <p>
                 Username:<br>
-                <input type=text name=signup_username>
+                <input type="text" name="username" required>
             </p>
             <p>
                 Password:<br>
-                <input type=password name=signup_password>
+                <input type="password" name="password" required>
             </p>
             <p><a href="/login">Already have an account? Log in here.</a></p>
             <input type=submit value="Sign Up">

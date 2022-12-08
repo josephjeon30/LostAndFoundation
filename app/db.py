@@ -38,7 +38,7 @@ def create_movie(mov_id, name, year, synopsis, trailer, poster):
     
 def check_user_exists(username): 
     c = db_connect()
-    c.execute('SELECT username FROM users WHERE username=?', (username))
+    c.execute('SELECT username FROM users WHERE username=?', [username])
     user = c.fetchone() 
     db_close()
     return bool(user)
