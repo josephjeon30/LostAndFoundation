@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Log In</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <script src=
-"https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js" >
+
+<head>
+  <title>Log In</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js">
   </script>
-  <script src=
-"https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" >
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js">
   </script>
-  </head>
+
+  <style>
+    input::placeholder {
+      color: #6e6767;
+      opacity: 1;
+    }
+  </style>
+</head>
 
 
-  <body>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li class="menu-text">[Logo]</li>
-        </ul>
-      </div>
-    
-      <div class="top-bar-right">LostAndFoundation: Joseph Jeon, Nakib Abedin, Yat Long Chan, Sasha Shifrina</div>
+<body>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="menu-text">[Logo]</li>
+      </ul>
     </div>
 
-    <br>
+    <div class="top-bar-right">LostAndFoundation: Joseph Jeon, Nakib Abedin, Yat Long Chan, Sasha Shifrina</div>
+  </div>
 
-    <center><h1>Ripe Tomatoes</h1></center>
+  <br>
 
-    <br>
+  <center>
+    <h1>Ripe Tomatoes</h1>
+  </center>
 
-    <h2>Login</h2>
+  <br>
 
-    <form method="POST">
-            <p>
-                Username:
-                <input type=text name=username>
-            </p>
-            <p>
-                Password:
-                <input type=password name=password>
-            </p>
-            <p><a href="/signup">New user? Sign up here.</a></p>
-            <input type=submit value=Login>
-        </form>
+  <h2>Login</h2>
+  
+  {% if status == 'error' %}
+  The wrong username or password was entered.
+  {% endif %}
+  <form action="/auth/login" method="POST">
+    <p>
+      <input type="text" name="username" placeholder="username" required>
+    </p>
+    <p>
+      <input type="password" name="password" placeholder="password" required>
+    </p>
+    <p><a href="/signup">New user? Sign up here.</a></p>
+    <input type=submit value=Login>
+  </form>
 
-  </body>
+</body>
+
 </html>
