@@ -21,7 +21,7 @@ def db_table_inits():
     c.execute("CREATE TABLE IF NOT EXISTS movies (mov_id int, name text, year int, synopsis text, trailer text, poster text)")
     db_close()
 
-def check_movie_not_exists(mov_id):  
+def check_movie_exists(mov_id):  
     c = db_connect()
     c.execute('SELECT id FROM movies WHERE mov_id=?', (mov_id))
     mov = c.fetchone()
@@ -56,3 +56,28 @@ def verify_login(username, password):
     if user: 
         return True
     return False
+
+def get_movie(movie_id):  #returns a tuple of all info for a specific movie - used on movie page 
+    c = db_connect()
+    c.execute('SELECT * FROM movies WHERE mov_id=?', (movie_id))
+    info = c.fetchall()
+    print(info)
+    print(info[0])
+    db.close()
+    return info[0]
+
+def get_movies():
+    c = db_connect()
+    c.execute('SELECT * FROM movies')
+    info = c.fetchall()
+    db.close()
+    return info
+
+def get_last_movie(): 
+    c = db_connect()
+    c.execute('SELECT * FROM movies')
+    info = c.fetchall()[-1]
+    db.close()
+    return info
+
+
