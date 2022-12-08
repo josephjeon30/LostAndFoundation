@@ -1,13 +1,30 @@
 .orbit-image{
-  height:500px;
+  height:200px;
   width:100%;
 }
 
 body{
-  margin:20px;
+
 }
 
-.docs-example-orbit-slide {
-  padding: 20px 40px;
-  color: rgb(255,0,255);
+
+
+.card-section{
+  text-align:center;
+}
+
+.orbit-previous{
+  height:100px;
+  background-color:black;
+  border-radius:0% 50% 50% 0%;
+}
+
+.orbit-next{
+  height:100px;
+  background-color:black;
+  border-radius:50% 0% 0% 50%;
+}
+
+.orbit{
+  background-color:rgba(0,0,0,0.1);
 }

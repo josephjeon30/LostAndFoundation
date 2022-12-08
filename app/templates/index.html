@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="../static/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
+
 </head>
 
 
@@ -22,7 +23,8 @@
 
     <div class="top-bar-right">
       <form action="/logout">
-        <input type="submit" name="sub1" value="logout" />
+        <input type="submit" name="sub1" value="logout">
+      </form>
     </div>
   </div>
 
@@ -31,28 +33,6 @@
   <center>
     <h1>Ripe Tomatoes</h1>
   </center>
-
-    <div class="orbit-container"><ul id="featured1" data-orbit="" data-options="pause_on_hover:false; timer_speed:5000;" class="orbit-slides-container" style="height: 323px;">
-            <li class="" style="z-index: 2; margin-left: 100%;">
-              <img src="https://t3.ftcdn.net/jpg/00/28/08/40/360_F_28084010_bGRJetPfBwNcO3YuRC2C3Pz7qASocWQ4.jpg">
-              <div class="orbit-caption">
-                Caption One. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-              </div>
-            </li>
-            <li class="" style="z-index: 2; margin-left: 100%;">
-              <img src="https://t3.ftcdn.net/jpg/00/28/08/40/360_F_28084010_bGRJetPfBwNcO3YuRC2C3Pz7qASocWQ4.jpg">
-              <div class="orbit-caption">
-                Caption Two. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-              </div>
-            </li>
-            <li class="active" style="z-index: 4; margin-left: 0%;">
-              <img src="https://t3.ftcdn.net/jpg/00/28/08/40/360_F_28084010_bGRJetPfBwNcO3YuRC2C3Pz7qASocWQ4.jpg">
-              <div class="orbit-caption">
-                Caption Three. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-              </div>
-            </li>
-          </ul><a href="#" class="orbit-prev"><span></span></a><a href="#" class="orbit-next"><span></span></a><div class="orbit-timer paused"><span></span><div class="orbit-progress" style="width: 0%;"></div></div><div class="orbit-slide-number"><span>3</span> of <span>3</span></div><ol class="orbit-bullets"><li data-orbit-slide="0" class=""></li><li data-orbit-slide="1" class=""></li><li data-orbit-slide="2" class="active"></li></ol>
-        </div>
   <br>
 
   <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
@@ -63,103 +43,129 @@
       </div>
       <ul class="orbit-container">
         <li class="is-active orbit-slide">
-          <figure class="orbit-figure">
-            <img class="orbit-image"
-              src="https://images.unsplash.com/flagged/photo-1566127992631-137a642a90f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"
-              alt="Space">
-            <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
-          </figure>
+          <div class="grid-container">
+      <div class="grid-x small-up-1 medium-up-5 align-center">
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie1</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie2</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie3</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie4</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie5</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        </li>
+        <li class="orbit-slide">
+          <div class="grid-container">
+      <div class="grid-x small-up-1 medium-up-5 align-center">
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie1</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie2</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie3</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie4</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="card">
+            <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
+            <div class="card-section">
+              <h4>Movie5</h4>
+              <p>Rating</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
         </li>
         <li class="orbit-slide">
           <figure class="orbit-figure">
-            <img class="orbit-image"
-              src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Macaca_nigra_self-portrait_large.jpg"
-              alt="Space">
-            <figcaption class="orbit-caption">Lets Rocket!</figcaption>
-          </figure>
-        </li>
-        <li class="orbit-slide">
-          <figure class="orbit-figure">
-            <img class="orbit-image" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Space">
+            <img class="orbit-image" src="https://i.pinimg.com/736x/cb/dc/38/cbdc38861144e29b9d923d92846339f0.jpg" alt="Space">
             <figcaption class="orbit-caption">Encapsulating</figcaption>
           </figure>
         </li>
         <li class="orbit-slide">
           <figure class="orbit-figure">
-            <img class="orbit-image" src="https://placehold.it/1200x600/666&text=Slide-4" alt="Space">
+            <img class="orbit-image" src="https://i.natgeofe.com/n/db72a497-3194-4832-9034-50b94b6f5351/86716_4x3.jpg" alt="Space">
             <figcaption class="orbit-caption">Outta This World</figcaption>
           </figure>
         </li>
       </ul>
     </div>
-    <nav class="orbit-bullets">
-      <button class="is-active" data-slide="0">
-        <span class="show-for-sr">First slide details.</span>
-        <span class="show-for-sr" data-slide-active-label>Current Slide</span>
-      </button>
-      <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-      <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-      <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-    </nav>
   </div>
 
   <script>
     $(document).foundation();
   </script>
 
-  <div class="grid-container">
-    <div class="grid-x grid-margin-x small-up-1 medium-up-5 align-center">
-      <div class="cell">
-        <div class="card">
-          <div class="card-section">
-            <h4>Card</h4>
-            <p>Card's Thing.</p>
-          </div>
-        </div>
-      </div>
+  <br><br>
 
-
-      <div class="cell">
-        <div class="card">
-          <div class="card-section">
-            <h4>Another Card</h4>
-            <p>Another Card's Thing</p>
-          </div>
-        </div>
-      </div>
-      <div class="cell">
-        <div class="card">
-          <div class="card-section">
-            <h4>Another Card</h4>
-            <p>Another Card's Thing</p>
-          </div>
-        </div>
-      </div>
-      <div class="cell">
-        <div class="card">
-          <div class="card-section">
-            <h4>Another Card</h4>
-            <p>Another Card's Thing</p>
-          </div>
-        </div>
-      </div>
-      <div class="cell">
-        <div class="card">
-          <div class="card-section">
-            <h4>Another Card</h4>
-            <p>Another Card's Thing</p>
-          </div>
-        </div>
-      </div>
-<<<<<<< HEAD
-    </div>
-    <script>
-      $(document).foundation();
-    </script>
+    
   </body>
-=======
-
-</body>
-
->>>>>>> d1b49c9dc41e15e2c820864674b5091a8d02fd75
 </html>
