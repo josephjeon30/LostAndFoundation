@@ -33,3 +33,7 @@ Yat Long -- 2022-12-07 22:10
 --------------------------------------------------------------
 Set up basic flask routes. Faciliate login/logout. Add to requirements
 ==============================================================
+Nakib + Sasha -- 2022-12-08 22:01
+--------------------------------------------------------------
+Completed db functionalities, adding some features that will help with __init.py__ (getLastMovie, getMovie, getAllMovies so that it is easier to display on the homepage and moviepage)
+==============================================================
