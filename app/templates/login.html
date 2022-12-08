@@ -9,7 +9,7 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js">
   </script>
-  
+
   <style>
     input::placeholder {
       color: #6e6767;
@@ -39,7 +39,10 @@
   <br>
 
   <h2>Login</h2>
-
+  
+  {% if error == 'login' %}
+  The wrong username or password was entered.
+  {% endif %}
   <form action="/auth/login" method="POST">
     <p>
       <input type="text" name="username" placeholder="username" required>

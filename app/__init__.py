@@ -33,7 +33,7 @@ def authenticate_login():
     pwd = request.form['password']
 
     if not db.verify_login(user, pwd):
-        return render_template('login.html', error = 'login incorrect')
+        return render_template('login.html', status = 'error')
     session['username'] = user
     return redirect('/')
 

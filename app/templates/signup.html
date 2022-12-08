@@ -39,7 +39,11 @@
   <br>
 
   <h2>Sign Up</h2>
-
+  {% if error == 'user_exists' %}
+  This user already exists
+  {% elif error == 'pwd_mismatch' %}
+  Passwords don't match
+  {% endif %}
   <form action="/auth/signup" method="POST">
     <p>
       <input type="text" name="username" placeholder="username" required>
