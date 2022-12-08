@@ -21,3 +21,8 @@ ALL -- 2022-12-06 22:48
 --------------------------------------------------------------
 Revised design doc: changed landing page from home page to login page, revised component and site map
 ==============================================================
+
+Joseph -- 2022-12-07 21:42
+--------------------------------------------------------------
+Added login.html and signup.html; made forms that would accept login info
+==============================================================
