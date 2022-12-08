@@ -40,7 +40,7 @@
 
   <h2>Login</h2>
   
-  {% if error == 'login' %}
+  {% if status == 'error' %}
   The wrong username or password was entered.
   {% endif %}
   <form action="/auth/login" method="POST">
