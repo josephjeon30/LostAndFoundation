@@ -33,7 +33,7 @@ def authenticate_login():
     pwd = request.form['password']
 
     if not db.verify_login(user, pwd):
-        return render_template('login.html', status = 'error')
+        return render_template('login.html', error = 'login incorrect')
     session['username'] = user
     return redirect('/')
 
@@ -47,8 +47,8 @@ def authenticate_signup():
     if db.check_user_exists(user):
         return render_template('signup.html', error = 'user_exists')
     
-    #if pwd != request.form['confirmation']:
-    #    return render_template('signup.html', error = 'pwd_mismatch')
+    if pwd != request.form['confirmation']:
+        return render_template('signup.html', error = 'pwd_mismatch')
     
     db.create_user(user, pwd, 'pfp_placeholder')
     session['username'] = user
