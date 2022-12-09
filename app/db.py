@@ -78,4 +78,23 @@ def get_last_movie():
     db.close()
     return info
 
+def get_user_data(username):
+    c = db_connect()
+    c.execute('SELECT password,pfp FROM users WHERE username=?', [username])
+    user_data = c.fetchone()
+    db.close()
+    return user_data
+
+def update_user_pfp(username, pfp):
+    c = db_connect()
+    c.execute('UPDATE users SET pfp=? WHERE username=?', (pfp, username))
+    db.close()
+    return None
+
+def update_user_passwd(username, password):
+    c = db_connect()
+    c.execute('UPDATE users SET password=? WHERE username=?', (password,username) )
+    db.close()
+    return None
+
 
