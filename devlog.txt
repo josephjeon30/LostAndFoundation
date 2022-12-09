@@ -37,9 +37,9 @@ Nakib + Sasha -- 2022-12-08 22:01
 --------------------------------------------------------------
 Completed db functionalities, adding some features that will help with __init.py__ (getLastMovie, getMovie, getAllMovies so that it is easier to display on the homepage and moviepage)
 ==============================================================
-Joseph -- 2022-12-08 18:35
+Joseph -- 2022-12-08 22:27
 --------------------------------------------------------------
-Implemented un-jinja'd carousel
+Implemented Foundation's Orbit carousel. Using Jinja, it displays the first 30 movies in the database in itself. 
 ==============================================================
 Yat Long -- 2022-12-08 22:42
 --------------------------------------------------------------
