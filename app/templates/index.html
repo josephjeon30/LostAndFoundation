@@ -64,7 +64,7 @@
             </div>
           </figure>
         </li>
-        {% for i in range(5, (movies | length), 5) %}
+        {% for i in range(5, [(movies | length), 30] | min, 5) %}
           <li class="orbit-slide">
             <div class="grid-container">
               <div class="grid-x medium-up-5 align-center">
