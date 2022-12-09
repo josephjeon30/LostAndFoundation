@@ -37,26 +37,27 @@
   </center>
 
   <br>
-
-  <h2>Sign Up</h2>
-  {% if error == 'user_exists' %}
-  This user already exists
-  {% elif error == 'pwd_mismatch' %}
-  Passwords don't match
-  {% endif %}
-  <form action="/auth/signup" method="POST">
-    <p>
-      <input type="text" name="username" placeholder="username" required>
-    </p>
-    <p>
-      <input type="password" name="password" placeholder="password" required>
-    </p>
-    <p>
-      <input type="password" name="confirmation" placeholder="confirm password" required>
-    </p>
-    <p><a href="/login">Already have an account? Log in here.</a></p>
-    <input type=submit value="Sign Up">
-  </form>
+  <div class="main">
+    <h2>Sign Up</h2>
+    {% if error == 'user_exists' %}
+    This user already exists
+    {% elif error == 'pwd_mismatch' %}
+    Passwords don't match
+    {% endif %}
+    <form action="/auth/signup" method="POST">
+      <p>
+        <input type="text" name="username" placeholder="username" required>
+      </p>
+      <p>
+        <input type="password" name="password" placeholder="password" required>
+      </p>
+      <p>
+        <input type="password" name="confirmation" placeholder="confirm password" required>
+      </p>
+      <p><a href="/login">Already have an account? Log in here.</a></p>
+      <input type=submit value="Sign Up">
+    </form>
+  </div>
 
 </body>
 

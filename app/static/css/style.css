@@ -1,14 +1,15 @@
+h1{
+  font-size:50px;
+}
+
 .orbit-image{
   height:200px;
   width:100%;
 }
 
-body{
-
+.orbit-container{
+  width:100%;
 }
-
-
-
 .card-section{
   text-align:center;
 }
@@ -27,4 +28,22 @@ body{
 
 .orbit{
   background-color:rgba(0,0,0,0.1);
+  padding:0;
+}
+
+.main{
+  margin-left:30%;
+  margin-right:30%;
+  margin-top:5%;
+  margin-bottom:10%;
+  padding:20px;
+  border: 1px solid black;
+}
+
+.poster{
+  height:350px;
+}
+
+.card-section{
+  height:100px;
 }

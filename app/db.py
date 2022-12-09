@@ -29,10 +29,10 @@ def check_movie_exists(mov_id):
     return bool(mov)
 
 def create_movie(mov_id, name, year, synopsis, trailer, poster): 
-    c = db_connect() 
     if (not check_movie_exists(mov_id)):
+        c = db_connect() 
         c.execute('INSERT INTO movies VALUES (?, ?, ?, ?, ?, ?)', (mov_id, name, year, synopsis, trailer, poster))
-    db_close()
+        db_close()
     
 def check_user_exists(username): 
     c = db_connect()

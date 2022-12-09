@@ -38,21 +38,24 @@
 
   <br>
 
-  <h2>Login</h2>
-  
-  {% if status == 'error' %}
-  The wrong username or password was entered.
-  {% endif %}
-  <form action="/auth/login" method="POST">
-    <p>
-      <input type="text" name="username" placeholder="username" required>
-    </p>
-    <p>
-      <input type="password" name="password" placeholder="password" required>
-    </p>
-    <p><a href="/signup">New user? Sign up here.</a></p>
-    <input type=submit value=Login>
-  </form>
+  <div class="main">
+
+    <h2>Login</h2>
+    
+    {% if status == 'error' %}
+    The wrong username or password was entered.
+    {% endif %}
+    <form action="/auth/login" method="POST">
+      <p>
+        <input type="text" name="username" placeholder="username" required>
+      </p>
+      <p>
+        <input type="password" name="password" placeholder="password" required>
+      </p>
+      <p><a href="/signup">New user? Sign up here.</a></p>
+      <input type=submit value=Login>
+    </form>
+  </span>
 
 </body>
 

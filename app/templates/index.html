@@ -36,6 +36,8 @@
 
   <br>
 
+  <br>
+
   <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
     <div class="orbit-wrapper">
       <div class="orbit-controls">
@@ -44,119 +46,43 @@
       </div>
       <ul class="orbit-container">
         <li class="is-active orbit-slide">
-          <div class="grid-container">
-            <div class="grid-x small-up-1 medium-up-5 align-center">
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie1</h4>
-                    <p>Rating</p>
+          <figure class="orbit-figure">
+            <div class="grid-container">
+              <div class="grid-x small-up-1 medium-up-5 align-center">
+                {% for i in range([(movies | length), 5] | min) %}
+                  <div class="cell">
+                    <div class="card">
+                      <img class="poster" src={{movies[i][5]}}>
+                      <div class="card-section">
+                        <h4 style="font-size:18px;font-family:Arial {% if (movies[i][1] | length) > 15 %} Narrow {% endif %};">{{movies[i][1]}}</h4>
+                        <p>{{movies[i][2]}}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie2</h4>
-                    <p>Rating</p>
-                  </div>
-                </div>
-              </div>
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie3</h4>
-                    <p>Rating</p>
-                  </div>
-                </div>
-              </div>
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie4</h4>
-                    <p>Rating</p>
-                  </div>
-                </div>
-              </div>
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie5</h4>
-                    <p>Rating</p>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
-          </div>
-              </li>
-              <li class="orbit-slide">
-                <div class="grid-container">
-            <div class="grid-x small-up-1 medium-up-5 align-center">
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie1</h4>
-                    <p>Rating</p>
+          </figure>
+        </li>
+        {% for i in range(5, (movies | length), 5) %}
+          <li class="orbit-slide">
+            <div class="grid-container">
+              <div class="grid-x medium-up-5 align-center">
+                {% for j in range([(movies | length) - i, 5] | min) %}
+                  <div class="cell">
+                    <div class="card">
+                      <img class="poster" src={{movies[(i+j)][5]}}>
+                      <div class="card-section">
+                        <h4 style="font-size:18px;font-family:Arial {% if (movies[i + j][1] | length) > 15 %} Narrow {% endif %};">{{movies[i + j][1]}}</h4>
+                        <p>{{movies[i + j][2]}}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie2</h4>
-                    <p>Rating</p>
-                  </div>
-                </div>
-              </div>
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie3</h4>
-                    <p>Rating</p>
-                  </div>
-                </div>
-              </div>
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie4</h4>
-                    <p>Rating</p>
-                  </div>
-                </div>
-              </div>
-              <div class="cell">
-                <div class="card">
-                  <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw">
-                  <div class="card-section">
-                    <h4>Movie5</h4>
-                    <p>Rating</p>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
-          </div>
-          </li>
-          <li class="orbit-slide">
-            <figure class="orbit-figure">
-              <img class="orbit-image" src="https://i.pinimg.com/736x/cb/dc/38/cbdc38861144e29b9d923d92846339f0.jpg" alt="Space">
-              <figcaption class="orbit-caption">Encapsulating</figcaption>
-            </figure>
-          </li>
-          <li class="orbit-slide">
-            <figure class="orbit-figure">
-              <img class="orbit-image" src="https://i.natgeofe.com/n/db72a497-3194-4832-9034-50b94b6f5351/86716_4x3.jpg" alt="Space">
-              <figcaption class="orbit-caption">Outta This World</figcaption>
-            </figure>
-          </li>
+          </li> 
+        {% endfor %}
         </ul>
       </div>
     </div>
