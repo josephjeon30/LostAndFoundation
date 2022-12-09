@@ -37,3 +37,7 @@ Nakib + Sasha -- 2022-12-08 22:01
 --------------------------------------------------------------
 Completed db functionalities, adding some features that will help with __init.py__ (getLastMovie, getMovie, getAllMovies so that it is easier to display on the homepage and moviepage)
 ==============================================================
+Joseph -- 2022-12-08 18:35
+--------------------------------------------------------------
+Implemented un-jinja'd carousel
+==============================================================

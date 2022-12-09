@@ -26,13 +26,11 @@ def check_movie_exists(mov_id):
     c.execute('SELECT id FROM movies WHERE mov_id=?', (mov_id))
     mov = c.fetchone()
     db_close()
-    if mov: 
-        return False
-    return True
+    return bool(mov)
 
 def create_movie(mov_id, name, year, synopsis, trailer, poster): 
     c = db_connect() 
-    if (check_movie_not_exists(mov_id)):
+    if (not check_movie_exists(mov_id)):
         c.execute('INSERT INTO movies VALUES (?, ?, ?, ?, ?, ?)', (mov_id, name, year, synopsis, trailer, poster))
     db_close()
     
