@@ -2,7 +2,7 @@
 
 from flask import Flask, request, session, redirect, render_template
 import db
-
+from apis import duck, omdb
 app = Flask(__name__)
 app.secret_key = "HI" # dummy key for now
 db.db_table_inits()
@@ -64,7 +64,7 @@ def authenticate_signup():
     if pwd != request.form['confirmation']:
         return render_template('signup.html', error = 'pwd_mismatch')
     
-    db.create_user(user, pwd, 'pfp_placeholder')
+    db.create_user(user, pwd, duck.get_duck())
     session['username'] = user
     return redirect('/')
 
@@ -74,6 +74,11 @@ def home():
         return redirect('/login')
     print(db.get_movies())
     return render_template('index.html', movies = db.get_movies())
+
+@app.route('/view/<imdb_id>', methods=['GET'])
+def view_movie(imdb_id):
+    movie_info = omdb.get_info(imdb_id)
+    return None
 
 if __name__ == '__main__':
     app.debug = True

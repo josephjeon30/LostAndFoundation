@@ -15,7 +15,7 @@ This project is an online cataloging app that:
 ## APIs
 - [OMDB API](https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_OMDbAPI.md)
 - [Watchmode API](https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_WatchmodeAPI.md)
-- [TheCatAPI](https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_CatAPI.md)
+- [random duck](https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_duck.md)
 
 ## Launch codes
 ### Cloning:
