@@ -23,7 +23,7 @@ def db_table_inits():
 
 def check_movie_exists(mov_id):  
     c = db_connect()
-    c.execute('SELECT id FROM movies WHERE mov_id=?', (mov_id))
+    c.execute('SELECT mov_id FROM movies WHERE mov_id=?', [mov_id])
     mov = c.fetchone()
     db_close()
     return bool(mov)
