@@ -46,4 +46,7 @@ Yat Long -- 2022-12-08 22:42
 Access info from omdb and duck api
 update README.md
 start work on view_movie flask route
+Nakib + Sasha + Yat Long -- 2022-12-09 22:01
+--------------------------------------------------------------
+Added mechanisms to send movie and user information to the frontend from the database
 ==============================================================
