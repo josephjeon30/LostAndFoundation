@@ -80,12 +80,12 @@ def view_movie(imdb_id):
     movie_info = omdb.get_info(imdb_id) # returns a dictionary with movie information
     movie_info.get("Poster")
 
-@app.route('/search', method=['POST'])
+@app.route('/search', methods=['POST'])
 def movie_search():
     if 'username' not in session:
         return redirect('/login')
     title = request.form('search')
-    return render_template('search.html', results = omdb.search(title))
+    return render_template('search.html', results = omdb.search(title)) 
 
 @app.route('/profile')
 def show_profile():
