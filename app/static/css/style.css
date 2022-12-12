@@ -14,6 +14,20 @@ h1{
   width:20%;
 }
 
+.search-button{
+  width:50px;
+}
+
+.textfield, .search-button{
+  display:block;
+  height:50px;
+}
+
+.searchbar{
+  display: flex;
+  flex-direction: row;
+}
+
 .orbit-container{
   width:100%;
 }
