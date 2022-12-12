@@ -51,3 +51,7 @@ Nakib + Sasha + Yat Long -- 2022-12-09 22:01
 --------------------------------------------------------------
 Added mechanisms to send movie and user information to the frontend from the database
 ==============================================================
+Joseph -- 2022-12-12 18:50
+--------------------------------------------------------------
+Implemented search bar and movies searched on it are added to the database
+==============================================================
