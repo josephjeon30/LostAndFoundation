@@ -57,7 +57,7 @@ def verify_login(username, password):
 
 def get_movie(movie_id):  #returns a tuple of all info for a specific movie - used on movie page 
     c = db_connect()
-    c.execute('SELECT * FROM movies WHERE mov_id=?', (movie_id))
+    c.execute('SELECT * FROM movies WHERE mov_id=?', [movie_id])
     info = c.fetchall()
     print(info)
     print(info[0])

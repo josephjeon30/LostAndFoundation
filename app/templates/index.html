@@ -34,6 +34,17 @@
     <h1>Ripe Tomatoes</h1>
   </center>
 
+  <hr>
+    <center>
+      <p>
+        <form action="/search?search="{search}>
+          <input class="textfield" type="text" placeholder="Search..." name="search">
+          <input class="search-button" type=submit value=🔎>
+        </form>
+      </p>
+    </center>
+  <hr>
+
   <br>
 
   <br>
@@ -50,15 +61,17 @@
             <div class="grid-container">
               <div class="grid-x small-up-1 medium-up-5 align-center">
                 {% for i in range([(movies | length), 5] | min) %}
-                  <div class="cell">
-                    <div class="card">
-                      <img class="poster" src={{movies[i][5]}}>
-                      <div class="card-section">
-                        <h4 style="font-size:18px;font-family:Arial {% if (movies[i][1] | length) > 15 %} Narrow {% endif %};">{{movies[i][1]}}</h4>
-                        <p>{{movies[i][2]}}</p>
+                  <a href="/view/{{movies[i][0]}}">
+                    <div class="cell">
+                      <div class="card">
+                        <img class="poster" src={{movies[i][5]}}>
+                        <div class="card-section">
+                          <h4 style="font-size:18px;font-family:Arial {% if (movies[i][1] | length) > 15 %} Narrow {% endif %};">{{movies[i][1]}}</h4>
+                          <p>{{movies[i][2]}}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 {% endfor %}
               </div>
             </div>
@@ -70,13 +83,15 @@
               <div class="grid-x medium-up-5 align-center">
                 {% for j in range([(movies | length) - i, 5] | min) %}
                   <div class="cell">
-                    <div class="card">
-                      <img class="poster" src={{movies[(i+j)][5]}}>
-                      <div class="card-section">
-                        <h4 style="font-size:18px;font-family:Arial {% if (movies[i + j][1] | length) > 15 %} Narrow {% endif %};">{{movies[i + j][1]}}</h4>
-                        <p>{{movies[i + j][2]}}</p>
+                    <a href="/view/{{movies[i+j][0]}}">
+                      <div class="card">
+                        <img class="poster" src={{movies[(i+j)][5]}}>
+                        <div class="card-section">
+                          <h4 style="font-size:18px;font-family:Arial {% if (movies[i + j][1] | length) > 15 %} Narrow {% endif %};">{{movies[i + j][1]}}</h4>
+                          <p>{{movies[i + j][2]}}</p>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 {% endfor %}
               </div>

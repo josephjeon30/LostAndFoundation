@@ -6,6 +6,13 @@ h1{
   height:200px;
   width:100%;
 }
+.card:hover{
+  background-color:rgba(0,0,0,0.05);
+}
+
+.textfield{
+  width:20%;
+}
 
 .orbit-container{
   width:100%;
