@@ -86,6 +86,18 @@ def view_movie(imdb_id):
         movie_info = db.get_movie(imdb_id)
     return render_template('view.html', movie = movie_info) 
 
+@app.route('/search', methods=['POST'])
+def movie_search():
+    if 'username' not in session:
+        return redirect('/login')
+    title = request.form('search')
+    return render_template('search.html', results = omdb.search(title)) 
+
+@app.route('/profile')
+def show_profile():
+    if 'username' not in session:
+        return redirect('/login')
+    
 if __name__ == '__main__':
     app.debug = True
     app.run()
