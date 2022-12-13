@@ -2,7 +2,7 @@
 
 from flask import Flask, request, session, redirect, render_template
 import db
-from apis import duck, omdb
+from apis import duck, omdb, watchmode
 app = Flask(__name__)
 app.secret_key = "HI" # dummy key for now
 db.db_table_inits()
@@ -82,7 +82,8 @@ def view_movie(imdb_id):
     if not db.check_movie_exists(imdb_id):
         mv = omdb.get_info(imdb_id)
         print(mv)
-        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'], '', mv['Poster'])
+        tomato_rating = mv['Ratings'][1]['Source'] + ": " + mv['Ratings'][1]['Value'] 
+        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],tomato_rating,  mv['Poster'])
     movie_info = db.get_movie(imdb_id)
     return render_template('view.html', movie = movie_info) 
 
@@ -92,7 +93,7 @@ def movie_search():
         return redirect('/login')
     try:
         res = ()
-        title = request.args['search']
+        title = request.args['search'].strip()
         res = omdb.search(title)
         print(res)
         return render_template('search.html', results = res) 

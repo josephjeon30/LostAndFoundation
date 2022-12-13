@@ -18,7 +18,7 @@ def db_table_inits():
     # Creats movies table
     c = db_connect()
     c.execute("CREATE TABLE IF NOT EXISTS users (username text, password text, pfp text)")
-    c.execute("CREATE TABLE IF NOT EXISTS movies (mov_id text, name text, year int, synopsis text, trailer text, poster text)")
+    c.execute("CREATE TABLE IF NOT EXISTS movies (mov_id text, name text, year int, synopsis text, rating text, streaming text, trailer text, poster text)")
     db_close()
 
 def check_movie_exists(mov_id):  
@@ -28,10 +28,10 @@ def check_movie_exists(mov_id):
     db_close()
     return bool(mov)
 
-def create_movie(mov_id, name, year, synopsis, trailer, poster): 
+def create_movie(mov_id, name, year, synopsis, rating, streaming, trailer, poster): 
     if (not check_movie_exists(mov_id)):
         c = db_connect() 
-        c.execute('INSERT INTO movies VALUES (?, ?, ?, ?, ?, ?)', (mov_id, name, year, synopsis, trailer, poster))
+        c.execute('INSERT INTO movies VALUES (?, ?, ?, ?, ?, ?, ?, ?)', (mov_id, name, year, synopsis, rating, streaming, trailer, poster))
         db_close()
     
 def check_user_exists(username): 
