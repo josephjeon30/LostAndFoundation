@@ -74,6 +74,7 @@ def home():
     if 'username' not in session:
         return redirect('/login')
     preset()
+    print(session)
     return render_template('index.html', movies = db.get_movies())
 
 @app.route('/view/<imdb_id>', methods=['GET'])
@@ -99,10 +100,18 @@ def movie_search():
     except:
         return render_template('search.html', results = []) 
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def show_profile():
     if 'username' not in session:
         return redirect('/login')
+    return render_template('profile.html', username = session['username'], pfp = db.get_user_data(session['username'])[1])
+
+@app.route('/changepfp', methods=['GET', 'POST'])
+def change_pfp():
+    if 'username' not in session:
+        return redirect('/login')
+    db.update_user_pfp(session['username'], duck.get_duck())
+    return redirect('/profile')
     
 if __name__ == '__main__':
     app.debug = True

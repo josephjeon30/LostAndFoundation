@@ -65,6 +65,12 @@ h1{
   height:350px;
 }
 
+.pfp{
+  height:300px;
+  width:300px;
+  border-radius:150px;
+}
+
 .card-section{
   height:100px;
 }

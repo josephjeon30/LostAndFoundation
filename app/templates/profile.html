@@ -42,29 +42,15 @@
     </center>
   <hr>
 
-	<form class="searchbar" action="/search?search="{search}>
-    	<input class="textfield" type="text" placeholder="Search..." name="search">
-    	<input class="search-button" type=submit value=🔎>
-	</form>
+  <center>
+    <h3>{{username}}</h3>
+    <img class="pfp" src ="{{pfp}}">
+    <br><br>
+    <form action="/changepfp">
+      <input type=submit value="Change Profile Picture">
+    </form>
+  </center>
 
-	<hr>
-	
-	<div class="grid-container">
-	  <div class="grid-x grid-margin-x small-up-4 medium-up-5">
-	  	{% for i in results['Search'] %}
-		    <div class="cell">
-		    	<a href="/view/{{ i['imdbID']}}">
-				    <div class="card">
-				        <img class="poster" src={{ i['Poster'] }}>
-				        <div class="card-section">
-				        	<h4 style="font-size:14px;">{{i['Title']}}</h4>
-				        	<p>{{i['Year']}}</p>
-				        </div>
-				    </div>
-		    	</a>
-		    </div>
-		{% endfor %}
-	  </div>
-	</div>
-  </body>
+</body>
+
 </html>
