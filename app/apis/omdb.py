@@ -9,3 +9,5 @@ def get_info(id):
 def search(title):
     url = f"http://www.omdbapi.com/?apikey={KEY}&s={title}&p=1"
     return requests.get(url).json()
+
+#print(get_info('tt0120338'))
