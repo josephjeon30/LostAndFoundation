@@ -1,6 +1,6 @@
 import requests
 
-KEY = open('../keys/key_watchmode.txt', 'r').read().strip()
+KEY = open('keys/key_watchmode.txt', 'r').read().strip()
 
 # returns info about streaming services in dict
 def get_streaming(imdb_id):

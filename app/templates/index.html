@@ -43,7 +43,7 @@
   <hr>
 
   <br>
-    <br><h2>Recently Viewed</h2>
+    <center><h2>Recently Viewed</h2></center>
 
 
   <br>
@@ -57,13 +57,13 @@
       <ul class="orbit-container">
         <li class="is-active orbit-slide">
           <figure class="orbit-figure">
-            <div class="grid-container">
-              <div class="grid-x small-up-1 medium-up-5 align-center">
+            <div class="grid-container-fluid">
+              <div class="grid-x medium-up-5 align-center">
                 {% for i in range([(movies | length), 5] | min) %}
                   <a href="/view/{{movies[i][0]}}">
                     <div class="cell">
-                      <div class="card">
-                        <img class="poster" src={{movies[i][5]}}>
+                      <div style="width: 285px;" class="card">
+                        <img class="poster" src={{movies[i][7]}}>
                         <div class="card-section">
                           <h4 style="font-size:18px;font-family:Arial {% if (movies[i][1] | length) > 15 %} Narrow {% endif %};">{{movies[i][1]}}</h4>
                           <p>{{movies[i][2]}}</p>
@@ -83,8 +83,8 @@
                 {% for j in range([(movies | length) - i, 5] | min) %}
                   <div class="cell">
                     <a href="/view/{{movies[i+j][0]}}">
-                      <div class="card">
-                        <img class="poster" src={{movies[(i+j)][5]}}>
+                      <div style="width: 285px;" class="card">
+                        <img class="poster" src={{movies[(i+j)][7]}}>
                         <div class="card-section">
                           <h4 style="font-size:18px;font-family:Arial {% if (movies[i + j][1] | length) > 15 %} Narrow {% endif %};">{{movies[i + j][1]}}</h4>
                           <p>{{movies[i + j][2]}}</p>
