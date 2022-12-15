@@ -81,9 +81,11 @@ def view_movie(imdb_id):
     movie_info = ()
     if not db.check_movie_exists(imdb_id):
         mv = omdb.get_info(imdb_id)
-        print(mv)
-        tomato_rating = mv['Ratings'][0]['Source'] + ": " + mv['Ratings'][0]['Value'] 
-        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],tomato_rating, '', '', mv['Poster'])
+        streams = watchmode.get_streaming()
+        trailer = watchmode.get_trailer()
+        #print(mv)
+        rating = 'IMDB Rating' + ": " + mv['imdbRating'] 
+        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', '', mv['Poster'])
     movie_info = db.get_movie(imdb_id)
     return render_template('view.html', movie = movie_info) 
 
