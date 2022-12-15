@@ -55,7 +55,17 @@ Joseph -- 2022-12-12 18:50
 --------------------------------------------------------------
 Implemented search bar and movies searched on it are added to the database
 ==============================================================
+Nakib + Sasha + Yat Long -- 2022-12-13 22:03
+--------------------------------------------------------------
+Designed algorithm to take the json file from WatchMode API and show all streaming platforms in which the movie is available. 
+==============================================================
 Joseph -- 2022-12-13 14:26
 --------------------------------------------------------------
 Implemented profile picture changing on profile page
+==============================================================
+Nakib + Yat long -- 2022-12-15 22:03
+--------------------------------------------------------------
+Helped Joseph debug a problem with the search results in which only the first 10 matches were showing.
+Continued to work on going through the json file from WatchMode API to find streaming platforms
+One major problem is that there are a lot of duplicates in the json file so we have to figure out how to deal with that.
 ==============================================================
