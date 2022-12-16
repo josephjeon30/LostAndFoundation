@@ -10,6 +10,3 @@ def get_streaming(imdb_id):
 def get_trailer(imdb_id):
   url = f'https://api.watchmode.com/v1/title/{imdb_id}/details/?apiKey={KEY}'
   return requests.get(url).json().get('trailer')
-
-for i in range (0, 999):
-  get_streaming('tt0120338')

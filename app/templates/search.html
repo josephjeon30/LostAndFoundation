@@ -37,17 +37,23 @@
   <hr>
     <center>
       <a href="/">Home</a> |
-      <a href="/search">Search</a> |
+      <a href="/search/1">Search</a> |
       <a href="/profile">Profile</a>
     </center>
   <hr>
-
-	<form class="searchbar" action="/search?search="{search}>
+	<form class="searchbar" action="{{url_for('movie_search', page = 1)}}">
+      <div style="width:30%"></div>
     	<input class="textfield" type="text" placeholder="Search..." name="search">
     	<input class="search-button" type=submit value=🔎>
 	</form>
 
-	<hr>
+  {% if searched != '' %}
+    {% if results['Search'] | length == 0 %}
+      <h2>Invalid request</h2>
+    {% else %}
+      <h2>Showing {{results['totalResults']}} results for "{{searched}}"</h2>
+    {% endif %}
+  {% endif %}
 	
 	<div class="grid-container">
 	  <div class="grid-x grid-margin-x small-up-4 medium-up-5">
@@ -66,5 +72,11 @@
 		{% endfor %}
 	  </div>
 	</div>
+
+  {% if searched != '' %}
+    {% if not results['Search'] | length == 0 %}
+      <a href="{{url_for('movie_search', page = (1 + pg | int), searched = searched)}}">afohaia</a>
+    {% endif %}
+  {% endif %}
   </body>
 </html>

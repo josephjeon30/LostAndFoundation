@@ -78,6 +78,8 @@ def home():
 
 @app.route('/view/<imdb_id>', methods=['GET'])
 def view_movie(imdb_id):
+    if 'username' not in session:
+        return redirect('/login')
     movie_info = ()
     if not db.check_movie_exists(imdb_id):
         mv = omdb.get_info(imdb_id)
@@ -87,18 +89,17 @@ def view_movie(imdb_id):
     movie_info = db.get_movie(imdb_id)
     return render_template('view.html', movie = movie_info) 
 
-@app.route('/search', methods=['GET', 'POST'])
-def movie_search():
+@app.route('/search/<page>', methods=['GET', 'POST'])
+def movie_search(page):
     if 'username' not in session:
         return redirect('/login')
     try:
         res = ()
         title = request.args['search'].strip()
-        res = omdb.search(title)
-        print(res)
-        return render_template('search.html', results = res) 
+        res = omdb.search(title, page)
+        return render_template('search.html', results = res, searched = request.args['search'], pg = page) 
     except:
-        return render_template('search.html', results = []) 
+        return render_template('search.html', results = [], searched = '', pg = -1) 
 
 @app.route('/profile', methods=['GET', 'POST'])
 def show_profile():

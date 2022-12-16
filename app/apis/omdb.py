@@ -6,8 +6,6 @@ def get_info(id):
     url = f"http://www.omdbapi.com/?apikey={KEY}&i={id}"
     return requests.get(url).json()
 
-def search(title):
-    url = f"http://www.omdbapi.com/?apikey={KEY}&s={title}&p=1"
+def search(title, page):
+    url = f"http://www.omdbapi.com/?apikey={KEY}&s={title}&page={page}"
     return requests.get(url).json()
-
-#print(get_info('tt0120338'))
