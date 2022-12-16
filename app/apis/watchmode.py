@@ -6,10 +6,10 @@ SITES = ['Netflix', 'Amazon', 'Hulu', 'HBO Max', 'Disney+', 'iTunes']
 def get_streaming(imdb_id):
   url = f'https://api.watchmode.com/v1/title/{imdb_id}/sources/?apiKey={KEY}'
   streaming = requests.get(url).json()
-  ret = {}
+  ret = []
   for d in streaming:
     if d['name'] in SITES:
-      ret[d['name']] = d['web_url']
+      ret.append( (d['name'], d['web_url']) )
   return ret
 
 def get_trailer(imdb_id):
