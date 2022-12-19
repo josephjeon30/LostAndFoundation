@@ -86,7 +86,7 @@ def view_movie(imdb_id):
         trailer = watchmode.get_trailer(imdb_id)
         #streams = watchmode.get_streaming(imdb_id)
         rating = 'IMDB Rating' + ": " + mv['imdbRating'] 
-        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', '', mv['Poster'])
+        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', trailer, mv['Poster'])
     movie_info = db.get_movie(imdb_id)
     return render_template('view.html', movie = movie_info, info = db.get_user_data(session['username'])) 
 
