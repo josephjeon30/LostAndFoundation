@@ -52,7 +52,13 @@
 		  	<p>{{movie[4]}}</p>
 
 		  	<h4>Trailer</h4>
-		  	<p>{{movie[6]}}</p>
+				{% if movie[6] %}
+		  	<div class="responsive-embed widescreen">
+  				<iframe width="100" height="100" src={{movie[6]}} frameborder="0" allowfullscreen></iframe>
+				</div>
+			  {% else %}
+				<p>No trailer found</p>
+	  		{% endif %}
 		  </div>
 		</div>
 		<br>

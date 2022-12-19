@@ -16,4 +16,7 @@ def get_streaming(imdb_id):
 
 def get_trailer(imdb_id):
   url = f'https://api.watchmode.com/v1/title/{imdb_id}/details/?apiKey={KEY}'
-  return requests.get(url).json().get('trailer')
+  trailer = requests.get(url).json().get('trailer')
+  if trailer:
+    trailer = trailer[:trailer.find('watch')] + 'embed/' + trailer[trailer.find('=') + 1:]
+  return trailer 
