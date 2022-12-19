@@ -65,7 +65,7 @@ def authenticate_signup():
     if pwd != request.form['confirmation']:
         return render_template('signup.html', error = 'pwd_mismatch')
     
-    db.create_user(user, pwd, duck.get_duck())
+    db.create_user(user, pwd, duck.get_duck(), 0)
     session['username'] = user
     return redirect('/')
 
@@ -74,7 +74,7 @@ def home():
     if 'username' not in session:
         return redirect('/login')
     print(session)
-    return render_template('index.html', movies = db.get_movies())
+    return render_template('index.html', movies = db.get_movies(), info = db.get_user_data(session['username']))
 
 @app.route('/view/<imdb_id>', methods=['GET'])
 def view_movie(imdb_id):
@@ -83,11 +83,12 @@ def view_movie(imdb_id):
     movie_info = ()
     if not db.check_movie_exists(imdb_id):
         mv = omdb.get_info(imdb_id)
-        print(mv)
-        tomato_rating = mv['Ratings'][0]['Source'] + ": " + mv['Ratings'][0]['Value'] 
-        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],tomato_rating, '', '', mv['Poster'])
+        trailer = watchmode.get_trailer(imdb_id)
+        #streams = watchmode.get_streaming(imdb_id)
+        rating = 'IMDB Rating' + ": " + mv['imdbRating'] 
+        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', '', mv['Poster'])
     movie_info = db.get_movie(imdb_id)
-    return render_template('view.html', movie = movie_info) 
+    return render_template('view.html', movie = movie_info, info = db.get_user_data(session['username'])) 
 
 @app.route('/search/<page>', methods=['GET', 'POST'])
 def movie_search(page):
@@ -97,21 +98,30 @@ def movie_search(page):
         res = ()
         title = request.args['search'].strip()
         res = omdb.search(title, page)
-        return render_template('search.html', results = res, searched = request.args['search'], pg = page) 
+        return render_template('search.html', results = res, searched = request.args['search'], pg = page, info = db.get_user_data(session['username'])) 
     except:
-        return render_template('search.html', results = [], searched = '', pg = -1) 
+        return render_template('search.html', results = [], searched = '', pg = -1, info = db.get_user_data(session['username'])) 
 
 @app.route('/profile', methods=['GET', 'POST'])
 def show_profile():
     if 'username' not in session:
         return redirect('/login')
-    return render_template('profile.html', username = session['username'], pfp = db.get_user_data(session['username'])[1])
+    return render_template('profile.html', username = session['username'], info = db.get_user_data(session['username']))
 
 @app.route('/changepfp', methods=['GET', 'POST'])
 def change_pfp():
     if 'username' not in session:
         return redirect('/login')
     db.update_user_pfp(session['username'], duck.get_duck())
+    return redirect('/profile')
+
+@app.route('/changetheme', methods=['GET', 'POST'])
+def change_theme():
+    if 'username' not in session:
+        return redirect('/login')
+    print(db.get_user_data(session['username']))
+    temp = (db.get_user_data(session['username'])[2] + 1) % 2
+    db.update_user_theme(session['username'], temp) 
     return redirect('/profile')
     
 if __name__ == '__main__':

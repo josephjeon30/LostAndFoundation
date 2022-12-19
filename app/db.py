@@ -17,7 +17,7 @@ def db_table_inits():
     # Creates users table if it doesn't exist
     # Creats movies table
     c = db_connect()
-    c.execute("CREATE TABLE IF NOT EXISTS users (username text, password text, pfp text)")
+    c.execute("CREATE TABLE IF NOT EXISTS users (username text, password text, pfp text, themeID int)")
     c.execute("CREATE TABLE IF NOT EXISTS movies (mov_id text, name text, year int, synopsis text, rating text, streaming text, trailer text, poster text)")
     db_close()
 
@@ -41,9 +41,9 @@ def check_user_exists(username):
     db_close()
     return bool(user)
 
-def create_user(username, password, pfp): 
+def create_user(username, password, pfp, themeID): 
     c = db_connect()
-    c.execute('INSERT INTO users VALUES (?,?,?)', (username, password, pfp))
+    c.execute('INSERT INTO users VALUES (?,?,?,?)', (username, password, pfp, themeID))
     db_close()
 
 def verify_login(username, password):
@@ -80,7 +80,7 @@ def get_last_movie():
 
 def get_user_data(username):
     c = db_connect()
-    c.execute('SELECT password,pfp FROM users WHERE username=?', [username])
+    c.execute('SELECT password,pfp,themeID FROM users WHERE username=?', [username])
     user_data = c.fetchone()
     db.close()
     return user_data
@@ -92,9 +92,17 @@ def update_user_pfp(username, pfp):
     db.close()
     return None
 
+def update_user_theme(username, themeID):
+    c = db_connect()
+    c.execute('UPDATE users SET themeID=? WHERE username=?', (themeID, username))
+    db.commit()
+    db.close()
+    return None
+
 def update_user_passwd(username, password):
     c = db_connect()
     c.execute('UPDATE users SET password=? WHERE username=?', (password,username) )
+    db.commit()
     db.close()
     return None
 
