@@ -81,14 +81,15 @@ def view_movie(imdb_id):
     if 'username' not in session:
         return redirect('/login')
     movie_info = ()
+    streams = []
     if not db.check_movie_exists(imdb_id):
         mv = omdb.get_info(imdb_id)
         trailer = watchmode.get_trailer(imdb_id)
-        #streams = watchmode.get_streaming(imdb_id)
+        streams = watchmode.get_streaming(imdb_id)
         rating = 'IMDB Rating' + ": " + mv['imdbRating'] 
         db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', trailer, mv['Poster'])
     movie_info = db.get_movie(imdb_id)
-    return render_template('view.html', movie = movie_info, info = db.get_user_data(session['username'])) 
+    return render_template('view.html', movie = movie_info, streaming = streams, info = db.get_user_data(session['username'])) 
 
 @app.route('/search/<page>', methods=['GET', 'POST'])
 def movie_search(page):

@@ -59,6 +59,10 @@
 			  {% else %}
 				<p>No trailer found</p>
 	  		{% endif %}
+			<h4>Streaming</h4>
+			{% for item in streaming %} 
+				<li><a href="{{item[1]}}">{{item[0]}}</a></li>
+				{% endfor %}
 		  </div>
 		</div>
 		<br>
