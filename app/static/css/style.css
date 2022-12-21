@@ -13,6 +13,10 @@ h1{
   border-radius:25px 0 0 25px;
 }
 
+.video{
+  width:98%;
+}
+
 .search-button{
   width:5%;
   border-radius:0 25px 25px 0;

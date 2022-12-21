@@ -35,32 +35,51 @@
 			</center>
 		<hr>
 
-		<div class="grid-x grid-padding-x">
-		  <div class="cell small-4">
-		  	<center>
-				<h2>{{movie[1]}}</h2>
-				<img style="height:500px;" src={{movie[7]}}>
-			</center>
-		  </div>
-		  <div class="cell small-8">
-		  	<h4>Synopsis</h4>
-		  	<p>{{movie[3]}}</p>
+		<div class="grid-y medium-grid-frame">
+		    <div class="cell shrink header medium-cell-block-container">
+				a
+		        <div class="grid-x padding-gutters"></div>
+		    </div>
+	    	<div class="cell medium-auto medium-cell-block-container">
+	        	<div class="grid-x grid-padding-x">
+	          	<div class="cell medium-4 medium-cell-block-y">
+	          		<center>
+		          		<h2>{{movie[1]}}</h2>
+		          		<br>
+		          		<img style="height:500px;" src={{movie[7]}}>
+	          		</center>
+	       		</div>
+	        	<div class="cell medium-8 medium-cell-block-y" style="height:900px;">
+		            <h4>Synopsis</h4>
+				  	<p>{{movie[3]}}</p>
 
-		  	<br>
+				  	<h4>Trailer</h4>
 
-		  	<h4>Rating</h4>
-		  	<p>{{movie[4]}}</p>
+					{% if movie[6] %}
+				  		<div class="responsive-embed widescreen video">
+		  					<iframe src={{movie[6]}} frameborder="0" allowfullscreen></iframe>
+						</div>
+					{% else %}
+						<p>No trailer found</p>
+		  			{% endif %}
 
-		  	<h4>Trailer</h4>
-				{% if movie[6] %}
-		  	<div class="responsive-embed widescreen">
-  				<iframe width="100" height="100" src={{movie[6]}} frameborder="0" allowfullscreen></iframe>
-				</div>
-			  {% else %}
-				<p>No trailer found</p>
-	  		{% endif %}
-		  </div>
-		</div>
-		<br>
+					<h4>Streaming</h4>
+					{% for item in streaming %} 
+						<li><a href="{{item[1]}}">{{item[0]}}</a></li>
+					{% endfor %}
+
+					<p>a</p>
+					<p>a</p>
+					<p>a</p>
+					<p>a</p>
+					<p>a</p>
+					<p>a</p>
+	      		</div>
+	    	</div>
+	  	</div>
+
+		<script>
+		    $(document).foundation();
+		</script>
 	</body>
 </html>
