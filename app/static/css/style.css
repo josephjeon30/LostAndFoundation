@@ -40,10 +40,9 @@ h1{
 .page-button{
   width:50px;
   height:50px;
-  background-color:white;
-  border-radius:25px;
   border:2px solid lightgray;
-  transition: background-color 0.3s ease-out 100ms, border 0.3s ease-out 100ms, color 0.3s ease-out 100ms;
+  border-radius:25px;
+  transition: background-color 0.3s ease-out 50ms, border 0.3s ease-out 50ms, color 0.3s ease-out 50ms;
 }
 
 .searchbar2{
