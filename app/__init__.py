@@ -21,11 +21,16 @@ def preset():
         print(mv)
         rating = mv['imdbRating'] 
         db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', trailer, mv['Poster'])
+    db.create_user('jo', 'qwe', duck.get_duck(), 0)
+    db.create_comment('tt5108870', 'jo', 'When i was 13, i came out to my parents as a morbius male. They couldnt accept my morbality, so they sent me off to camp. They just didnt understand— i was morbed that way. At the camp, they gave us electromorb therapy to morb us into beta males. I resisted the treatment, being a morbius male, you cant morb me out of being morbed. I fooled the counselors into thinking they had successfully morbed be into a beta male, and i returned home. To this day, i live a double life— one for my parents, who still cannot accept morbality, and one where its always morbin time.')
 
 @app.route('/login', methods=['GET'])
 def login():
-    if 'username' in session:
+    if 'username' in session and db.check_user_exists(session['username']):
         return redirect('/')
+    movlist = db.get_movies()
+    if len(movlist) < 1:
+        preset()
     return render_template('login.html')
 
 @app.route('/signup', methods=['GET'])
@@ -71,11 +76,11 @@ def authenticate_signup():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if 'username' not in session:
+    if 'username' not in session :
+        return redirect('/login')
+    if not db.check_user_exists(session['username']):
         return redirect('/login')
     movlist = db.get_movies()
-    if len(movlist) < 1:
-        preset()
     return render_template('index.html', movies = movlist, info = db.get_user_data(session['username']))
 
 @app.route('/view/<imdb_id>', methods=['GET', 'POST'])
