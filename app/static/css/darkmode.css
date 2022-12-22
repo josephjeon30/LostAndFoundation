@@ -1,6 +1,6 @@
 .card{
   background-color:rgb(0,0,0);
-  border: 1px solid black
+  border: 1px solid black;
 }
 
 .card:hover{
@@ -12,7 +12,10 @@
 }
 
 body{
-	background-color:black;
+	background-color:rgba(10,10,10,1);
+	background-image:linear-gradient(to top, rgb(0,0,0), rgba(0,0,0,0.6)), url(http://wallpaperset.com/w/full/6/8/7/29750.jpg);
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
 }
 
 h1,h2,h3,h4,h5,h6,p{
@@ -22,3 +25,4 @@ h1,h2,h3,h4,h5,h6,p{
 .top-bar{
 	
 }
+

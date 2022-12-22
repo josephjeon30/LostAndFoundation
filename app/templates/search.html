@@ -19,16 +19,16 @@
 
 
 <body>
-  <div class="top-bar">
+ <div class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
-        <li class="menu-text">[Logo]</li>
+        <li class="menu-text"><img style="width:10%" src="../static/logo.png"></li>
       </ul>
     </div>
 
     <div class="top-bar-right">
       <form action="/logout">
-        <input type="submit" name="sub1" value="logout">
+        <input class="cool-button" type="submit" name="sub1" value="Log Out">
       </form>
     </div>
   </div>
@@ -36,14 +36,16 @@
   <br>
 
   <center>
-    <h1>Ripe Tomatoes</h1>
+    <img style="width:60%" src="../static/logo2.png">
   </center>
 
   <hr>
     <center>
-      <a href="/">Home</a> |
-      <a href="/search/1">Search</a> |
-      <a href="/profile">Profile</a>
+      <div style="height:50px;">
+        <a class="directory" href="/">Home</a>
+        <a class="directory" href="/search/1">Search</a>
+        <a class="directory" href="/profile">Profile</a>
+      </div>
     </center>
   <hr>
 	<form class="searchbar" action="{{url_for('movie_search', page = 1)}}">

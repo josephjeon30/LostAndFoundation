@@ -1,4 +1,5 @@
 import sqlite3, random as rand
+from datetime import datetime
 
 DB_FILE = "data.db"
 
@@ -19,6 +20,7 @@ def db_table_inits():
     c = db_connect()
     c.execute("CREATE TABLE IF NOT EXISTS users (username text, password text, pfp text, themeID int)")
     c.execute("CREATE TABLE IF NOT EXISTS movies (mov_id text, name text, year int, synopsis text, rating text, streaming text, trailer text, poster text)")
+    c.execute("CREATE TABLE IF NOT EXISTS comments (mov_id text, username text, content text, upload_time text, pfp text)")
     db_close()
 
 def check_movie_exists(mov_id):  
@@ -46,6 +48,22 @@ def create_user(username, password, pfp, themeID):
     c.execute('INSERT INTO users VALUES (?,?,?,?)', (username, password, pfp, themeID))
     db_close()
 
+def create_comment(mov_id, username, content):
+    pfp = get_user_data(username)[1]
+    c = db_connect()
+    now = datetime.now()
+    dt_string = now.strftime("%B %d, %Y %H:%M:%S")
+    c.execute('INSERT INTO comments VALUES (?,?,?,?,?)', (mov_id, username, content, dt_string, pfp))
+    db_close()
+
+def get_comments(movie_id):
+    c = db_connect()
+    c.execute('SELECT * FROM comments WHERE mov_id=?', [movie_id])
+    info = c.fetchall()
+    print(info)
+    db.close()
+    return info
+
 def verify_login(username, password):
     c = db_connect()
     c.execute('SELECT username,password FROM users WHERE username=? AND password=?', (username, password))
@@ -59,8 +77,6 @@ def get_movie(movie_id):  #returns a tuple of all info for a specific movie - us
     c = db_connect()
     c.execute('SELECT * FROM movies WHERE mov_id=?', [movie_id])
     info = c.fetchall()
-    print(info)
-    print(info[0])
     db.close()
     return info[0]
 

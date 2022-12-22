@@ -15,41 +15,50 @@
 		<div class="top-bar">
 		    <div class="top-bar-left">
 		      <ul class="menu">
-		        <li class="menu-text">[Logo]</li>
+		        <li class="menu-text"><img style="width:10%" src="../static/logo.png"></li>
 		      </ul>
 		    </div>
 
-		    <div class="top-bar-right">LostAndFoundation: Joseph Jeon, Nakib Abedin, Yat Long Chan, Sasha Shifrina</div>
-		</div>
+		    <div class="top-bar-right">
+		      <form action="/logout">
+		        <input class="cool-button" type="submit" name="sub1" value="Log Out">
+		      </form>
+		    </div>
+		  </div>
 
 		<br>
-		<center><h1>Ripe Tomatoes</h1></center>
+		<center><img style="width:60%" src="../static/logo2.png"></center>
 
 		<br>
 
 		<hr>
-			<center>
-			  <a href="/">Home</a> |
-			  <a href="/search/1">Search</a> |
-			  <a href="/profile">Profile</a>
-			</center>
-		<hr>
+		    <center>
+		      <div style="height:50px;">
+		        <a class="directory" href="/">Home</a>
+		        <a class="directory" href="/search/1">Search</a>
+		        <a class="directory" href="/profile">Profile</a>
+		      </div>
+		    </center>
+		  <hr>
 
 		<div class="grid-y medium-grid-frame">
-		    <div class="cell shrink header medium-cell-block-container">
+		    <div class="cell shrink header medium-cell-block-container bgtext">
 				a
 		        <div class="grid-x padding-gutters"></div>
 		    </div>
 	    	<div class="cell medium-auto medium-cell-block-container">
 	        	<div class="grid-x grid-padding-x">
-	          	<div class="cell medium-4 medium-cell-block-y">
+	          	<div class="cell medium-4 medium-cell-block-y sidebar">
 	          		<center>
 		          		<h2>{{movie[1]}}</h2>
 		          		<br>
 		          		<img style="height:500px;" src={{movie[7]}}>
+		          		<br><br>
+		          		<div class="pie-chart" style="background-image:conic-gradient(rgba(255,255,255,0.8) {{360 - movie[4] | float * 36}}deg, rgba(209,51,51,1) {{360 - movie[4] | float * 36}}deg);">{{movie[4]}}</div>
+		          		<p>out of <strong>10</strong></p>
 	          		</center>
 	       		</div>
-	        	<div class="cell medium-8 medium-cell-block-y" style="height:900px;">
+	        	<div class="cell medium-8 medium-cell-block-y movie-content" style="height:900px;">
 		            <h4>Synopsis</h4>
 				  	<p>{{movie[3]}}</p>
 
@@ -65,15 +74,31 @@
 
 					<h4>Streaming</h4>
 					{% for item in streaming %} 
-						<li><a href="{{item[1]}}">{{item[0]}}</a></li>
+						<li><a style="font-size:20px" href="{{item[1]}}">{{item[0]}}</a></li>
 					{% endfor %}
 
-					<p>a</p>
-					<p>a</p>
-					<p>a</p>
-					<p>a</p>
-					<p>a</p>
-					<p>a</p>
+					<h4>Comments</h4>
+					<form action="{{url_for('view_movie', imdb_id = movie[0])}}">
+				    	<input type="text" placeholder="Leave a comment..." name="cmnt">
+				    	<input class="cool-button" type=submit value="Submit">
+				    </form>
+				    <br><br>
+				    <div class="grid-y">
+					    <div class="grid-x grid-padding-x">
+						    {% for item in comments %} 
+						    	<div class="cell medium-3 medium-cell-block-x">
+						    		<img class="pfp-small" src="{{item[4]}}">
+						    	</div>
+						    	<div class="cell medium-9 medium-cell-block-x">
+						    		<div class="comments">
+							    		<h5><strong>{{item[1]}}</strong> <span style="font-weight:200;">on {{item[3]}}</span></h5>
+							    		<p>{{item[2]}}</p>
+						    		</div>
+						    	</div>
+						    	<br><br><br><br><br><br><br><br>
+						    {% endfor %}
+						</div>
+					</div>
 	      		</div>
 	    	</div>
 	  	</div>
