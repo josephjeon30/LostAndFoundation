@@ -104,6 +104,7 @@ def get_user_data(username):
 def update_user_pfp(username, pfp):
     c = db_connect()
     c.execute('UPDATE users SET pfp=? WHERE username=?', (pfp, username))
+    c.execute('UPDATE comments SET pfp=? WHERE username=?', (pfp, username))
     db.commit()
     db.close()
     return None
