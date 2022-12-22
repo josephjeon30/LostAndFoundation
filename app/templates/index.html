@@ -42,8 +42,8 @@
   <hr>
     <center>
       <div style="height:50px;">
-        <a class="directory" href="/">Home</a>
-        <a class="directory" href="/search/1">Search</a>
+        <a class="directory" href="/">Home &emsp;</a>
+        <a class="directory" href="/search/1">Search &emsp;</a>
         <a class="directory" href="/profile">Profile</a>
       </div>
     </center>
@@ -85,6 +85,7 @@
             <figure class="orbit-figure">
               <div class="grid-container-fluid">
                 <div class="grid-x medium-up-5 align-center">
+                  {% if movies|length >= 10 %}
                   {% for i in range(5,10) %}
                     <div class="cell">
                       <a href="/view/{{movies[i][0]}}">
@@ -98,6 +99,7 @@
                       </a>
                     </div>
                   {% endfor %}
+                  {% endif %}
                 </div>
               </div>
             </figure>
