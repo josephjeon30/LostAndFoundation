@@ -18,6 +18,7 @@ def preset():
     for i in ['tt0347149', 'tt0266543', 'tt0120338']:
         mv = omdb.get_info(i)
         trailer = watchmode.get_trailer(i)
+        print(mv)
         rating = mv['imdbRating'] 
         db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', trailer, mv['Poster'])
 
