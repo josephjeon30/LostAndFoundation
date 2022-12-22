@@ -22,7 +22,7 @@
   <div class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
-        <li class="menu-text"><img style="width:10%" src="../static/logo.png"></li>
+        <a href="/"><li class="menu-text"><img style="width:10%" src="../static/logo.png"></li></a>
       </ul>
     </div>
 
@@ -64,7 +64,7 @@
           <figure class="orbit-figure">
             <div class="grid-container-fluid">
               <div class="grid-x medium-up-5 align-center">
-                {% for i in range(0, 5) %}
+                {% for i in range(0, [5, (movies|length)] | min) %}
                   <a href="/view/{{movies[i][0]}}">
                     <div class="cell">
                       <div style="width: 285px;" class="card">
@@ -85,7 +85,7 @@
             <figure class="orbit-figure">
               <div class="grid-container-fluid">
                 <div class="grid-x medium-up-5 align-center">
-                  {% for i in range(5,10) %}
+                  {% for i in range(5,[10, (movies|length)] | min) %}
                     <div class="cell">
                       <a href="/view/{{movies[i][0]}}">
                         <div style="width: 285px;" class="card">

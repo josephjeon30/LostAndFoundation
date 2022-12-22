@@ -16,21 +16,27 @@ def preset():
     db.create_movie('tt2294629', 'Frozen', 2013, 'When the newly crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition.', '7.4','Netflix', 'https://www.youtube.com/embed/TbQm5doF_Uc' , 'https://m.media-amazon.com/images/M/MV5BNzE1OTkwOTkwMV5BMl5BanBnXkFtZTgwNTcwMDk4NTE@._V1_.jpg')
     db.create_movie('tt0903747', 'Breaking Bad', 2008, 'A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family\'s future.','9.5', 'Netflix', 'https://www.youtube.com/embed/2gTC4uWP3_Y', 'https://m.media-amazon.com/images/M/MV5BYTU3NWI5OGMtZmZhNy00MjVmLTk1YzAtZjA3ZDA3NzcyNDUxXkEyXkFqcGdeQXVyODY5Njk4Njc@._V1_FMjpg_UY474_.jpg')
     for i in ['tt0347149', 'tt0266543', 'tt0120338']:
-        mv = omdb.get_info(i)
-        trailer = watchmode.get_trailer(i)
-        print(mv)
-        rating = mv['imdbRating'] 
-        db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', trailer, mv['Poster'])
+        try:
+            mv = omdb.get_info(i)
+            trailer = watchmode.get_trailer(i)
+            print(mv)
+            rating = mv['imdbRating'] 
+            db.create_movie(mv['imdbID'],mv['Title'], mv['Year'], mv['Plot'],rating, '', trailer, mv['Poster'])
+        except:
+            print("oopsy poopsy")
     db.create_user('jo', 'qwe', duck.get_duck(), 0)
     db.create_comment('tt5108870', 'jo', 'When i was 13, i came out to my parents as a morbius male. They couldnt accept my morbality, so they sent me off to camp. They just didnt understand— i was morbed that way. At the camp, they gave us electromorb therapy to morb us into beta males. I resisted the treatment, being a morbius male, you cant morb me out of being morbed. I fooled the counselors into thinking they had successfully morbed be into a beta male, and i returned home. To this day, i live a double life— one for my parents, who still cannot accept morbality, and one where its always morbin time.')
 
 @app.route('/login', methods=['GET'])
 def login():
-    if 'username' in session and db.check_user_exists(session['username']):
+    if 'username' in session:
+        if not db.check_user_exists(session['username']):
+            return redirect('/logout')
         return redirect('/')
     movlist = db.get_movies()
     if len(movlist) < 1:
         preset()
+    print(db.check_user_exists('jo'))
     return render_template('login.html')
 
 @app.route('/signup', methods=['GET'])

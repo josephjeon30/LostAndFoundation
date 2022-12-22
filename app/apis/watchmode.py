@@ -4,16 +4,19 @@ KEY = open('keys/key_watchmode.txt', 'r').read().strip()
 SITES = ['Netflix', 'Amazon Prime', 'Hulu', 'HBO Max', 'Disney+', 'iTunes']
 # returns info about streaming services in dict
 def get_streaming(imdb_id):
-  url = f'https://api.watchmode.com/v1/title/{imdb_id}/sources/?apiKey={KEY}'
-  print(url)
-  streaming = requests.get(url, verify = False).json()
-  ret = []
-  for d in streaming:
-    tupl = (d['name'], d['web_url'])
-    print(tupl)
-    if d['name'] in SITES and tupl not in ret:
-      ret.append(tupl)
-  return ret
+  try:
+    url = f'https://api.watchmode.com/v1/title/{imdb_id}/sources/?apiKey={KEY}'
+    print(url)
+    streaming = requests.get(url, verify = False).json()
+    ret = []
+    for d in streaming:
+      tupl = (d['name'], d['web_url'])
+      print(tupl)
+      if d['name'] in SITES and tupl not in ret:
+        ret.append(tupl)
+    return ret
+  except:
+    return ();
 
 def get_trailer(imdb_id):
   url = f'https://api.watchmode.com/v1/title/{imdb_id}/details/?apiKey={KEY}'
