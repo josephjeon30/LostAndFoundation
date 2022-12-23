@@ -2,14 +2,14 @@
 ## Roster
 * Joseph: PM, Frontend Manager
 * Nakib: Lead database manager 
-* Yat Long: Middleware (Flask)
-* Sasha: Database
+* Yat Long: APIs and Flask
+* Sasha: Database + APIs
 
 
 ## Description
 This project is an online cataloging app that:
 - Displays information about movies and TV shows
-- Allows users to compile their favorite movies and shows
+- Allows users to search for and comment on movies and TV shows
 - Allows users to edit their profile
 
 ## APIs
@@ -22,7 +22,7 @@ This project is an online cataloging app that:
 	git clone git@github.com:josephjeon30/LostAndFoundation.git
 ### Virtual Environment:
 #### Change into the LostAndFoundation directory:
-	cd LostAndFoundation
+	cd path/to/LostAndFoundation
 #### Create the virtual environment:
 	python3 -m venv venv
 #### Activate the virtual environment:
@@ -30,4 +30,5 @@ This project is an online cataloging app that:
 #### Install requirements:
 	pip install -r requirements.txt
 #### Run Flask app:
-	python3 app/__init__.py
+	cd path/to/app
+	python3 __init__.py
