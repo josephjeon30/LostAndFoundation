@@ -115,7 +115,7 @@ def movie_search(page):
         title = request.args['search'].strip()
         res = omdb.search(title, page)
         print(res)
-        return render_template('search.html', results = res, searched = request.args['search'], pg = page, info = db.get_user_data(session['username'])) 
+        return render_template('search.html', results = res, searched = request.args['search'], pg = page, info = db.get_user_data(session['username']), page=page) 
     except:
         return render_template('search.html', results = [], searched = '', pg = -1, info = db.get_user_data(session['username'])) 
 

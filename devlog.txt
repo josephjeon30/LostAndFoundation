@@ -74,8 +74,27 @@ Yat Long -- 2022-12-15 18:30
 Get url to select streaming services 
 change rating to imdb rating
 ==============================================================
+Yat Long + Sasha + Nakib -- 2022-12-15 18:30
+--------------------------------------------------------------
+Refactor fxn for streaming sites
+==============================================================
+Yat Long -- 2022-12-19 18:20
+--------------------------------------------------------------
+Embed trailer into view page
+==============================================================
 Nakib -- 2022-12-21 12:42
 --------------------------------------------------------------
 Write preset method to load the movie database with some default values 
 These default movies will be shown to all users
+==============================================================
+Yat Long -- 2022-12-21 21:00
+--------------------------------------------------------------
+create logo
+==============================================================
+Yat Long -- 2022-12-22 22:00
+--------------------------------------------------------------
+Fix last page issue on search page
+rename "invalid request"
+Show "streaming not not available"
+Highlight current page number in search
 ==============================================================

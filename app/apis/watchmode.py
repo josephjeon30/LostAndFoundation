@@ -1,7 +1,7 @@
 import requests
 
 KEY = open('keys/key_watchmode.txt', 'r').read().strip()
-SITES = ['Netflix', 'Amazon Prime', 'Hulu', 'HBO Max', 'Disney+', 'iTunes']
+SITES = ['Netflix', 'Amazon', 'Hulu', 'HBO Max', 'Disney+', 'iTunes']
 # returns info about streaming services in dict
 def get_streaming(imdb_id):
   try:

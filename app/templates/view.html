@@ -34,9 +34,9 @@
 		<hr>
 		    <center>
 		      <div style="height:50px;">
-		        <a class="directory" href="/">Home</a>
-		        <a class="directory" href="/search/1">Search</a>
-		        <a class="directory" href="/profile">Profile</a>
+        <a class="directory" href="/">Home &emsp;</a>
+        <a class="directory" href="/search/1">Search &emsp;</a>
+        <a class="directory" href="/profile">Profile</a>
 		      </div>
 		    </center>
 		  <hr>
@@ -73,9 +73,13 @@
 		  			{% endif %}
 
 					<h4>Streaming</h4>
+					{% if streaming %}
 					{% for item in streaming %} 
 						<li><a style="font-size:20px" href="{{item[1]}}">{{item[0]}}</a></li>
 					{% endfor %}
+					{% else %}
+					<p>Not available on selected streaming services</p>
+					{% endif %}
 
 					<h4>Comments</h4>
 					<form action="{{url_for('view_movie', imdb_id = movie[0])}}">
